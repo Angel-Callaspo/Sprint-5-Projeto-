@@ -5,9 +5,9 @@ def df_duplicado (data_f):
     aux_df_duplicado = data_f[df.duplicated()]
     tam_df_duplicado = df.duplicated().sum()
     if tam_df_duplicado > 0:
-        return print(f"{aux_df_duplicado}, Quantidade de duplicados explicitos é = {tam_df_duplicado}")
+        return print(f"{aux_df_duplicado}, Quantidade duplicados é = {tam_df_duplicado}")
     else:
-        return print(f"Quantidade de duplicados explicitos na tabela é = {tam_df_duplicado}")
+        return print(f"Quantidade de duplicados é = {tam_df_duplicado}")
 
 
 def serie_duplicado (data_f, column):

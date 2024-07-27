@@ -5,7 +5,7 @@ def df_duplicado (df):
     aux_df_duplicado = df[df.duplicated()]
     tam_df_duplicado = df.duplicated().sum()
     if tam_df_duplicado > 0:
-        return print(f"{aux_df_duplicado}, Quantidade de duplicados explicitos na tabela é = {tam_df_duplicado}")
+        return print(f"{aux_df_duplicado}, Quantidade de duplicados explicitos é = {tam_df_duplicado}")
        
     else:
         return print(f"Quantidade de duplicados explicitos na tabela é = {tam_df_duplicado}")

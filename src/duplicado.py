@@ -1,0 +1,23 @@
+
+
+def df_duplicado (df):                                                         
+    """DESCRIÇÃO DA FUNÇÃO DUPLICADOS DE DATAFRAME EXPLÍCITOS"""
+    aux_df_duplicado = df[df.duplicated()]
+    tam_df_duplicado = df.duplicated().sum()
+    if tam_df_duplicado > 0:
+        return print(f"{aux_df_duplicado}, Quantidade de duplicados explicitos na tabela é = {tam_df_duplicado}")
+       
+    else:
+        return print(f"Quantidade de duplicados explicitos na tabela é = {tam_df_duplicado}")
+
+
+
+def serie_duplicado (df,column):
+    """DESCRIÇÃO DA FUNÇÃO DUPLICADOS DE SERIES EXPLÍCITOS"""
+    aux_serie_duplicado = df[column].value_counts()
+    mascara = aux_serie_duplicado > 1
+    duplicado = aux_serie_duplicado.index[mascara]
+    if len(duplicado) > 1:
+        return print(f"{duplicado}, Quantidade de valores duplicados implicitos na culuna {coluna} é = {len(duplicado)}")
+    else:
+        return print(f"Quantidade de valores duplicados implicitos na culuna {coluna} é = {len(duplicado)}")  

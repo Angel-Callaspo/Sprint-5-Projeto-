@@ -1,4 +1,4 @@
-def cabeçalhos_df (df):
+def cabecalhos_df (df):
     """Corrigir cabeçalhos de colunas"""
     coluna_nova = []
     for aux_col in df.columns:

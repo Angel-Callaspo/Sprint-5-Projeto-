@@ -12,6 +12,9 @@ if hist_button: # se o botão for clicado
     
     # criar um histograma
     fig = px.histogram(df_carro, x="odometer")
-     
+
+    # criando titulo para nosso dashboard
+    st.title('Frequência de hodômetro dos carros')
+
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)

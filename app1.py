@@ -8,6 +8,7 @@ st.title('Dashboard Anuncios de Carros')
 criar_caixa_mod_qua = st.checkbox('Modelos Anunciados') # criar uma caixa histograma
 criar_caixa_mod_pre = st.checkbox('Modelos vs Preços Médios') # criar caixa de seleção
 criar_caixa_pre_hod = st.checkbox('Preços vs hodômetro') # criar caixa de seleção
+criar_caixa_modelo = st.checkbox('Modelos: informação integrada') # criar caixa de seleção
 
 if criar_caixa_mod_qua: # se o botão for clicado
     st.write('Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
@@ -15,13 +16,18 @@ if criar_caixa_mod_qua: # se o botão for clicado
     st.title('Quantidade de Modelos de carros anunciados')
     fig.show()
     st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
-
+      
 if criar_caixa_mod_pre: # se a caixa for clicado
     df_mod_pri = df_carro.groupby('model')['price'].median().reset_index()
     fig = px.bar(df_mod_pri, x='model', y='price') # criar um histograma
     st.title('Modelos vs Preços Médios') # criando titulo para nosso dashboard
     fig.show()
     st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
+    
+    criar_botao = st.button('Ver dados') # criar um botão
+    if criar_botao: # se botão for clicado
+        resumo = df_carro.loc[:,['model', 'price']]
+        st.dataframe(resumo)
 
 if criar_caixa_pre_hod:
     fig = px.scatter(df_carro, x='price', y='odometer')
@@ -29,7 +35,7 @@ if criar_caixa_pre_hod:
     fig.show()
     st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
 
-criar_botao = st.button('Filtrar 2 colunas') # criar um botão
-if criar_botao: # se botão for clicado
-    nome = input("Digite seu nome: ")
-    print(f"Olá, {nome}! Seja bem-vindo ao nosso programa.")
+    criar_botao = st.button('Ver dados') # criar um botão
+    if criar_botao: # se botão for clicado
+        resumo = df_carro.loc[:,['odometer', 'price']]
+        st.dataframe(resumo)

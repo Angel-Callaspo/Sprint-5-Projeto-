@@ -4,11 +4,12 @@ import streamlit as st
 from pathlib import Path
 
 df_carro = pd.read_csv(Path("data/vehicles.csv")) # lendo dados
-st.title('Dashboard Anuncios de Carros')
-criar_caixa_mod_qua = st.checkbox('Modelos Anunciados') # criar uma caixa histograma
-criar_caixa_mod_pre = st.checkbox('Modelos vs Preços Médios') # criar caixa de seleção
-criar_caixa_pre_hod = st.checkbox('Preços vs hodômetro') # criar caixa de seleção
-criar_bot_filtro = st.button('Filtra dados por modelos') # criar botão filtrar base dados
+with st.container():
+    st.title('Dashboard Anuncios de Carros')
+    criar_caixa_mod_qua = st.checkbox('Modelos Anunciados') # criar uma caixa histograma
+    criar_caixa_mod_pre = st.checkbox('Modelos vs Preços Médios') # criar caixa de seleção
+    criar_caixa_pre_hod = st.checkbox('Preços vs hodômetro') # criar caixa de seleção
+    criar_bot_filtro = st.button('Filtra dados por modelos') # criar botão filtrar base dados
 
 if criar_caixa_mod_qua: # se o botão for clicado
     st.write('Criando um histograma para o conjunto de dados de anúncios de vendas de carros')

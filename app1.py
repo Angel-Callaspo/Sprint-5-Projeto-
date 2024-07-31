@@ -30,4 +30,6 @@ if criar_caixa_pre_hod:
     st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
 
 criar_botao = st.button('Filtrar 2 colunas') # criar um botão
-#if criar_botao: # se botão for clicado
+if criar_botao: # se botão for clicado
+    nome = input("Digite seu nome: ")
+    print(f"Olá, {nome}! Seja bem-vindo ao nosso programa.")

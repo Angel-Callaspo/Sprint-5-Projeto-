@@ -14,15 +14,13 @@ if criar_caixa_mod_qua: # se o botão for clicado
     st.write('Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
     fig = px.histogram(df_carro, x="model") # criar um histograma
     st.title('Quantidade de Modelos de carros anunciados')
-    fig.show()
-    #st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
+    st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
       
 if criar_caixa_mod_pre: # se a caixa for clicado
     df_mod_pri = df_carro.groupby('model')['price'].median().reset_index()
     fig = px.bar(df_mod_pri, x='model', y='price') # criar um histograma
     st.title('Modelos vs Preços Médios') # criando titulo para nosso dashboard
-    fig.show()
-    #st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
+    st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
     
     criar_botao = st.button('Ver dados') # criar um botão
     if criar_botao: # se botão for clicado
@@ -32,8 +30,7 @@ if criar_caixa_mod_pre: # se a caixa for clicado
 if criar_caixa_pre_hod:
     fig = px.scatter(df_carro, x='price', y='odometer')
     st.title('Preços vs hodômetro') # criando titulo para nosso dashboard
-    fig.show()
-    #st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
+    st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
 
     criar_botao = st.button('Ver dados') # criar um botão
     if criar_botao: # se botão for clicado

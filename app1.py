@@ -9,7 +9,7 @@ criar_caixa_mod_qua = st.checkbox('Modelos Anunciados') # criar uma caixa histog
 criar_caixa_mod_pre = st.checkbox('Modelos vs Preços Médios') # criar caixa de seleção
 criar_caixa_pre_hod = st.checkbox('Criar um histograma') # criar caixa de seleção
 
-if criar_botao: # se o botão for clicado
+if criar_caixa_mod_qua: # se o botão for clicado
     st.write('Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
     fig = px.histogram(df_carro, x="model", color='red') # criar um histograma
     st.title('Quantidade de Modelos de carros anunciados')

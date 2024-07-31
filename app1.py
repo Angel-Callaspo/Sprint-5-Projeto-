@@ -4,28 +4,26 @@ import streamlit as st
 from pathlib import Path
 
 df_carro = pd.read_csv(Path("data/vehicles.csv")) # lendo dados
-hist_button = st.button('Criar histograma') # criar um botão
+criar_botao = st.button('Modelos: histograma') # criar um botão
+criar_caixa_mod_pre = st.checkbox('Modelos vs Preços Médios') # criar caixa de seleção
+criar_caixa_pre_hod = st.checkbox('Criar um histograma') # criar caixa de seleção
 
-if hist_button: # se o botão for clicado
-    # escrever uma mensagem
+if criar_botao: # se o botão for clicado
     st.write('Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
-    
-    # criar um histograma
-    fig = px.histogram(df_carro, x="odometer")
+    fig = px.histogram(df_carro, x="model") # criar um histograma
+    st.title('Quantidade de Modelos de carros anunciados')
+    fig.show()
+    st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
 
-    # criando titulo para nosso dashboard
-    st.title('Frequência de hodômetro dos carros')
+if criar_caixa_mod_pre: # se a caixa for clicado
+    df_mod_pri = df_carro.groupby('model')['price'].median().reset_index()
+    fig = px.bar(df_mod_pri, x='model', y='price') # criar um histograma
+    st.title('Modelos vs Preços Médios') # criando titulo para nosso dashboard
+    fig.show()
+    st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo
 
-    # exibir um gráfico Plotly interativo
-    st.plotly_chart(fig, use_container_width=True)
-
-build_histogram = st.checkbox('Criar um histograma')
-if build_histogram:
-    # criar um histograma
-    fig = px.histogram(df_carro, x="odometer")
-
-    # criando titulo para nosso dashboard
-    st.title('Frequência de hodômetro dos carros')
-
-    # exibir um gráfico Plotly interativo
-    st.plotly_chart(fig, use_container_width=True)
+if criar_caixa_pre_hod:
+    fig = px.scatter(df_carro, x='price', y='odometer')
+    st.title('Preços vs hodômetro') # criando titulo para nosso dashboard
+    fig.show()
+    st.plotly_chart(fig, use_container_width=True) # exibir um gráfico Plotly interativo

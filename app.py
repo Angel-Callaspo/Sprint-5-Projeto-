@@ -10,7 +10,7 @@ criar_caixa_mod_qua = st.checkbox('Modelos Anunciados') # criar uma caixa histog
 criar_caixa_mod_pre = st.checkbox('Modelos vs Preços Médios') # criar caixa de seleção
 criar_caixa_pre_hod = st.checkbox('Preços vs hodômetro') # criar caixa de seleção
 
-criar_bot_filtro = st.button('Filtra dados por modelos') # criar botão filtrar base dados
+criar_bot_filtro = st.button('Reinicia Filtro dados por modelos') # criar botão filtrar base dados
 col1 = st.text_input('inserir modelo')
 botao_executar = st.button('Filtra')
 
